@@ -5,20 +5,19 @@ import java.util.ArrayList;
 public class User {
     private int stringId;
     private String username;
-    private ArrayList<User> userArrayList;
-    private ArrayList<Message>messageArrayList;
+    private ArrayList<Message>messageArrayList = new ArrayList<>();
+    private App app;
 
-
-    public User(int stringId, String username) {
-    };
-
-    public void addUser(int stringId, String username){
-        userArrayList.add(new User(stringId,username));
+    public User(String username, int stringId) {
+        this.username = username;
+        this.stringId = stringId;
     }
 
-    public static User user(int stringId, String username){
-        return new User(stringId,username);
-
+    public void setApp(App app) {
+        this.app = app;
     }
 
+    public void addUser(App app){
+        app.addUser(this);
+    }
 }
